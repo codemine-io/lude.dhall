@@ -1,8 +1,8 @@
 let Prelude = ../../Prelude.dhall
 
-let Order = ../../Classes/Order/Type.dhall
+let Order = ../../Algebras/Order/Type.dhall
 
-let Comparison = ../../Classes/Order/Comparison.dhall
+let Comparison = ../../Algebras/Order/Comparison.dhall
 
 let ListExtensions = ../List/package.dhall
 

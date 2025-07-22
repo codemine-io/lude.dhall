@@ -1,6 +1,6 @@
 let Prelude = ../../Prelude.dhall
 
-let Comparison = ../../Classes/Order/Comparison.dhall
+let Comparison = ../../Algebras/Order/Comparison.dhall
 
 let order = ./order.dhall
 

@@ -1,8 +1,8 @@
 let Prelude = ../../Prelude.dhall
 
-let Classes = ../../Classes/package.dhall
+let Algebras = ../../Algebras/package.dhall
 
-let Arbitrary = Classes.Arbitrary
+let Arbitrary = Algebras.Arbitrary
 
 let NaturalExtensions = ../Natural/package.dhall
 

@@ -1,6 +1,6 @@
 let Prelude = ../../Prelude.dhall
 
-let Equality = ../../Classes/Equality/Type.dhall
+let Equality = ../../Algebras/Equality/Type.dhall
 
 let NaturalExtensions = ../Natural/package.dhall
 
