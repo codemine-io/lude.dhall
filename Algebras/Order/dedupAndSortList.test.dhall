@@ -23,27 +23,27 @@ in  { dedupAndSortListFunction =
                   Natural
                   Extensions.Natural.order
                   [ 1, 2, 3, 4, 5 ]
-            ===  [ 1, 3, 5, 4, 2 ]
+            ===  [ 1, 2, 3, 4, 5 ]
       , reverseOrder =
             assert
           :     dedupAndSortList
                   Natural
                   Extensions.Natural.order
                   [ 5, 4, 3, 2, 1 ]
-            ===  [ 5, 3, 1, 2, 4 ]
+            ===  [ 1, 2, 3, 4, 5 ]
       , withDuplicates =
             assert
           :     dedupAndSortList
                   Natural
                   Extensions.Natural.order
                   [ 3, 1, 4, 1, 5, 9, 2, 6, 5, 3 ]
-            ===  [ 2, 3, 4, 5, 3, 5, 6, 9, 1, 1 ]
+            ===  [ 1, 2, 3, 4, 5, 6, 9 ]
       , randomOrder =
             assert
           :     dedupAndSortList
                   Natural
                   Extensions.Natural.order
                   [ 7, 2, 9, 1, 5 ]
-            ===  [ 7, 9, 5, 2, 1 ]
+            ===  [ 1, 2, 5, 7, 9 ]
       }
     }

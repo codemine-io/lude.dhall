@@ -22,7 +22,7 @@ in  { insertIntoDedupedSortedListFunction =
                   Extensions.Natural.order
                   1
                   [ 2, 3, 4 ]
-            ===  [ 1, 4, 3, 2 ]
+            ===  [ 1, 2, 3, 4 ]
       , insertInMiddle =
             assert
           :     insertIntoDedupedSortedList
@@ -30,7 +30,7 @@ in  { insertIntoDedupedSortedListFunction =
                   Extensions.Natural.order
                   3
                   [ 1, 2, 4, 5 ]
-            ===  [ 3, 5, 4, 2, 1 ]
+            ===  [ 1, 2, 3, 4, 5 ]
       , insertAtEnd =
             assert
           :     insertIntoDedupedSortedList
@@ -38,7 +38,7 @@ in  { insertIntoDedupedSortedListFunction =
                   Extensions.Natural.order
                   6
                   [ 1, 2, 3, 4, 5 ]
-            ===  [ 6, 5, 4, 3, 2, 1 ]
+            ===  [ 1, 2, 3, 4, 5, 6 ]
       , insertDuplicate =
             assert
           :     insertIntoDedupedSortedList
@@ -46,6 +46,6 @@ in  { insertIntoDedupedSortedListFunction =
                   Extensions.Natural.order
                   3
                   [ 3 ]
-            ===  [ 3, 3 ]
+            ===  [ 3 ]
       }
     }

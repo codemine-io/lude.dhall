@@ -23,23 +23,40 @@ in  \(A : Type) ->
       in  \(order : Order A) ->
           \(newElement : A) ->
             let updateState
-                : A -> State -> State
-                = \(element : A) ->
-                  \(state : State) ->
-                    if        state.inserted
-                          ||  greaterThanEqual A order newElement element
-                    then  state // { list = [ element ] # state.list }
-                    else  { inserted = True
-                          , list = [ element, newElement ] # state.list
-                          }
+                : State -> A -> State
+                = \(state : State) ->
+                  \(element : A) ->
+                    if    state.inserted
+                    then  { inserted = True, list = [ element ] # state.list }
+                    else  merge
+                            { Smaller =
+                              { inserted = True
+                              , list = [ element, newElement ] # state.list
+                              }
+                            , Equal =
+                              { inserted = True
+                              , list = [ element ] # state.list
+                              }
+                            , Greater =
+                              { inserted = False
+                              , list = [ element ] # state.list
+                              }
+                            }
+                            (order.compare newElement element)
 
             let finishState
                 : State -> List A
                 = \(state : State) ->
                     if    state.inserted
                     then  Prelude.List.reverse A state.list
-                    else  [ newElement ] # Prelude.List.reverse A state.list
+                    else  Prelude.List.reverse A ([ newElement ] # state.list)
 
             in  \(list : List A) ->
                   finishState
-                    (Prelude.List.fold A list State updateState initialState)
+                    ( Prelude.List.foldLeft
+                        A
+                        list
+                        State
+                        updateState
+                        initialState
+                    )
