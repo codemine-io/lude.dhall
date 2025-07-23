@@ -5,4 +5,5 @@
 , order = ./order.dhall
 , toTextInLower = ./toTextInLower.dhall
 , toTextInTitle = ./toTextInTitle.dhall
+, fromHeadAndTail = ./fromHeadAndTail.dhall
 }
