@@ -1,1 +1,1 @@
-{ Result = ./Result/package.dhall }
+{ Result = ./Result/package.dhall, LatinChar = ./LatinChar/package.dhall }
