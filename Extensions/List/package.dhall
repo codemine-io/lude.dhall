@@ -3,4 +3,5 @@
 , order = ./order.dhall
 , dedupAndSort = ./dedupAndSort.dhall
 , insertIntoDeduped = ./insertIntoDeduped.dhall
+, uncons = ./uncons.dhall
 }
