@@ -1,6 +1,7 @@
 let Prelude = ../../Prelude.dhall
 
-in  \(length : Natural) ->
-      let newlineReplacement = "\n" ++ Prelude.Text.replicate length " "
+let prefixEachLine
+    : Text -> Text -> Text
+    = ./prefixEachLine.dhall
 
-      in  Prelude.Text.replace newlineReplacement "\n"
+in  \(length : Natural) -> prefixEachLine (Prelude.Text.replicate length " ")

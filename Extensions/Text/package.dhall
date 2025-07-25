@@ -4,4 +4,8 @@ let indent
     : Natural -> Text -> Text
     = ./indent.dhall
 
-in  { indent }
+let prefixEachLine
+    : Text -> Text -> Text
+    = ./prefixEachLine.dhall
+
+in  { indent, prefixEachLine }
