@@ -29,4 +29,20 @@ let andThen
         Self Failure Success2
     = ./andThen.dhall
 
-in  { Type = Self, mapError, mapSuccess, andThen }
+let traverseList
+    : forall (Failure : Type) ->
+      forall (A : Type) ->
+      forall (B : Type) ->
+      (A -> Self Failure B) ->
+      List A ->
+        Self Failure (List B)
+    = ./traverseList.dhall
+
+let sequenceList
+    : forall (Failure : Type) ->
+      forall (Success : Type) ->
+      List (Self Failure Success) ->
+        Self Failure (List Success)
+    = ./sequenceList.dhall
+
+in  { Type = Self, mapError, mapSuccess, andThen, traverseList, sequenceList }
