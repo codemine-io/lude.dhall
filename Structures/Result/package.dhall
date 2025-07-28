@@ -42,14 +42,14 @@ let mapBoth
         Self Failure2 Success2
     = ./mapBoth.dhall
 
-let andThen
+let flatMap
     : forall (Failure : Type) ->
       forall (Success1 : Type) ->
       forall (Success2 : Type) ->
       (Success1 -> Self Failure Success2) ->
       Self Failure Success1 ->
         Self Failure Success2
-    = ./andThen.dhall
+    = ./flatMap.dhall
 
 let traverseList
     : forall (Failure : Type) ->
@@ -72,7 +72,7 @@ in  { Type = Self
     , mapSuccess
     , mapSuccess2
     , mapBoth
-    , andThen
+    , flatMap
     , traverseList
     , sequenceList
     }
