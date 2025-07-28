@@ -20,6 +20,17 @@ let mapSuccess
         Self Failure Success2
     = ./mapSuccess.dhall
 
+let mapBoth
+    : forall (Failure1 : Type) ->
+      forall (Failure2 : Type) ->
+      forall (Success1 : Type) ->
+      forall (Success2 : Type) ->
+      (Failure1 -> Failure2) ->
+      (Success1 -> Success2) ->
+      Self Failure1 Success1 ->
+        Self Failure2 Success2
+    = ./mapBoth.dhall
+
 let andThen
     : forall (Failure : Type) ->
       forall (Success1 : Type) ->
@@ -45,4 +56,11 @@ let sequenceList
         Self Failure (List Success)
     = ./sequenceList.dhall
 
-in  { Type = Self, mapError, mapSuccess, andThen, traverseList, sequenceList }
+in  { Type = Self
+    , mapError
+    , mapSuccess
+    , mapBoth
+    , andThen
+    , traverseList
+    , sequenceList
+    }
