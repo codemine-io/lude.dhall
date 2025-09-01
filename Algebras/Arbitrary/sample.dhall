@@ -5,17 +5,11 @@ let Prelude = ../../Prelude.dhall
 
 let Self = ./Type.dhall
 
-let sample
-    : forall (A : Type) ->
-      forall (instance : Self A) ->
-      forall (size : Natural) ->
-        List A
-    = \(A : Type) ->
-      \(instance : Self A) ->
-      \(size : Natural) ->
+in  \(A : Type) ->
+    \(instance : Self A) ->
+    \(size : Natural) ->
         Prelude.List.generate
           size
           A
           (\(index : Natural) -> instance.generate index 0)
-
-in  sample
+      : List A
