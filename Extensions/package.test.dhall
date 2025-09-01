@@ -2,4 +2,5 @@
 , List = ./List/package.test.dhall
 , NonEmpty = ./NonEmpty/package.test.dhall
 , Map = ./Map/package.test.dhall
+, Optional = ./Optional/package.test.dhall
 }
