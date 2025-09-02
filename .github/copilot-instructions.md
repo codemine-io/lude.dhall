@@ -23,9 +23,9 @@ The project follows a hierarchical package structure where each module has:
 
 When working with this codebase, refer to these essential resources:
 
-- **[Dhall Prelude source code](https://github.com/dhall-lang/dhall-lang/tree/v23.1.0/Prelude)** - The foundation this library extends
-- [Dhall Language Documentation](https://dhall-lang.org/) - Core language reference
-- [Dhall Standard Prelude](https://prelude.dhall-lang.org/) - Standard library documentation
+- **[Dhall Prelude source code](https://github.com/dhall-lang/dhall-lang/tree/v23.1.0/Prelude)** - Dhall standard library
+- [Dhall Language Semantics](https://raw.githubusercontent.com/dhall-lang/dhall-lang/6d4c9d6b8812ed3df1f45aabeca3deaf0615ba7b/standard/README.md) - Core language reference
+- [Dhall Language ABNF Grammar](https://raw.githubusercontent.com/dhall-lang/dhall-lang/6d4c9d6b8812ed3df1f45aabeca3deaf0615ba7b/standard/dhall.abnf)
 
 ## Development Guidelines
 
