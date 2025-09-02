@@ -19,11 +19,7 @@ let traverseList
     = ./traverseList.dhall
 
 let map0
-    : forall (F : Type -> Type) ->
-      Self F ->
-      forall (A : Type) ->
-      A ->
-        F A
+    : forall (F : Type -> Type) -> Self F -> forall (A : Type) -> A -> F A
     = ./map0.dhall
 
 let map1
