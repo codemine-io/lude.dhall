@@ -1,4 +1,4 @@
-{ Algebras = ./Algebras/package.dhall
+{ Typeclasses = ./Typeclasses.dhall
 , Extensions = ./Extensions/package.dhall
 , Structures = ./Structures/package.dhall
 }

@@ -1,9 +1,9 @@
 let Prelude = ../../Prelude.dhall
 
-let Algebras = ../../Algebras/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
 in  \(Element : Type) ->
-    \(equality : Algebras.Equality.Type Element) ->
+    \(equality : Typeclasses.Classes.Equality.Type Element) ->
     \(needle : Element) ->
     \(list : List Element) ->
         Prelude.List.fold

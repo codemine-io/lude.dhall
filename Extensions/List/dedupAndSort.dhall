@@ -1,8 +1,8 @@
 let Prelude = ../../Prelude.dhall
 
-let Algebras = ../../Algebras/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
 in  \(Element : Type) ->
-    \(elementOrder : Algebras.Order.Type Element) ->
-        Algebras.Order.dedupAndSortList Element elementOrder
+    \(elementOrder : Typeclasses.Classes.Ordering.Type Element) ->
+        Typeclasses.Classes.Ordering.dedupAndSortList Element elementOrder
       : List Element -> List Element

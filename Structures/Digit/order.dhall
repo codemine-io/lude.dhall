@@ -1,155 +1,155 @@
 let Self = ./Type.dhall
 
-let Algebras = ../../Algebras/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
-let Comparison = Algebras.Order.Comparison
+let Order = Typeclasses.Classes.Ordering.Order.Type
 
-let compare
-    : Self -> Self -> Comparison
+let order
+    : Self -> Self -> Order
     = \(left : Self) ->
       \(right : Self) ->
         merge
           { Zero =
               merge
-                { Zero = Comparison.Equal
-                , One = Comparison.Smaller
-                , Two = Comparison.Smaller
-                , Three = Comparison.Smaller
-                , Four = Comparison.Smaller
-                , Five = Comparison.Smaller
-                , Six = Comparison.Smaller
-                , Seven = Comparison.Smaller
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Equal
+                , One = Order.Less
+                , Two = Order.Less
+                , Three = Order.Less
+                , Four = Order.Less
+                , Five = Order.Less
+                , Six = Order.Less
+                , Seven = Order.Less
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , One =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Equal
-                , Two = Comparison.Smaller
-                , Three = Comparison.Smaller
-                , Four = Comparison.Smaller
-                , Five = Comparison.Smaller
-                , Six = Comparison.Smaller
-                , Seven = Comparison.Smaller
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Equal
+                , Two = Order.Less
+                , Three = Order.Less
+                , Four = Order.Less
+                , Five = Order.Less
+                , Six = Order.Less
+                , Seven = Order.Less
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , Two =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Equal
-                , Three = Comparison.Smaller
-                , Four = Comparison.Smaller
-                , Five = Comparison.Smaller
-                , Six = Comparison.Smaller
-                , Seven = Comparison.Smaller
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Equal
+                , Three = Order.Less
+                , Four = Order.Less
+                , Five = Order.Less
+                , Six = Order.Less
+                , Seven = Order.Less
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , Three =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Greater
-                , Three = Comparison.Equal
-                , Four = Comparison.Smaller
-                , Five = Comparison.Smaller
-                , Six = Comparison.Smaller
-                , Seven = Comparison.Smaller
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Greater
+                , Three = Order.Equal
+                , Four = Order.Less
+                , Five = Order.Less
+                , Six = Order.Less
+                , Seven = Order.Less
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , Four =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Greater
-                , Three = Comparison.Greater
-                , Four = Comparison.Equal
-                , Five = Comparison.Smaller
-                , Six = Comparison.Smaller
-                , Seven = Comparison.Smaller
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Greater
+                , Three = Order.Greater
+                , Four = Order.Equal
+                , Five = Order.Less
+                , Six = Order.Less
+                , Seven = Order.Less
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , Five =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Greater
-                , Three = Comparison.Greater
-                , Four = Comparison.Greater
-                , Five = Comparison.Equal
-                , Six = Comparison.Smaller
-                , Seven = Comparison.Smaller
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Greater
+                , Three = Order.Greater
+                , Four = Order.Greater
+                , Five = Order.Equal
+                , Six = Order.Less
+                , Seven = Order.Less
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , Six =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Greater
-                , Three = Comparison.Greater
-                , Four = Comparison.Greater
-                , Five = Comparison.Greater
-                , Six = Comparison.Equal
-                , Seven = Comparison.Smaller
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Greater
+                , Three = Order.Greater
+                , Four = Order.Greater
+                , Five = Order.Greater
+                , Six = Order.Equal
+                , Seven = Order.Less
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , Seven =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Greater
-                , Three = Comparison.Greater
-                , Four = Comparison.Greater
-                , Five = Comparison.Greater
-                , Six = Comparison.Greater
-                , Seven = Comparison.Equal
-                , Eight = Comparison.Smaller
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Greater
+                , Three = Order.Greater
+                , Four = Order.Greater
+                , Five = Order.Greater
+                , Six = Order.Greater
+                , Seven = Order.Equal
+                , Eight = Order.Less
+                , Nine = Order.Less
                 }
                 right
           , Eight =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Greater
-                , Three = Comparison.Greater
-                , Four = Comparison.Greater
-                , Five = Comparison.Greater
-                , Six = Comparison.Greater
-                , Seven = Comparison.Greater
-                , Eight = Comparison.Equal
-                , Nine = Comparison.Smaller
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Greater
+                , Three = Order.Greater
+                , Four = Order.Greater
+                , Five = Order.Greater
+                , Six = Order.Greater
+                , Seven = Order.Greater
+                , Eight = Order.Equal
+                , Nine = Order.Less
                 }
                 right
           , Nine =
               merge
-                { Zero = Comparison.Greater
-                , One = Comparison.Greater
-                , Two = Comparison.Greater
-                , Three = Comparison.Greater
-                , Four = Comparison.Greater
-                , Five = Comparison.Greater
-                , Six = Comparison.Greater
-                , Seven = Comparison.Greater
-                , Eight = Comparison.Greater
-                , Nine = Comparison.Equal
+                { Zero = Order.Greater
+                , One = Order.Greater
+                , Two = Order.Greater
+                , Three = Order.Greater
+                , Four = Order.Greater
+                , Five = Order.Greater
+                , Six = Order.Greater
+                , Seven = Order.Greater
+                , Eight = Order.Greater
+                , Nine = Order.Equal
                 }
                 right
           }
           left
 
-in  { compare } : Algebras.Order.Type Self
+in  { order } : Typeclasses.Classes.Ordering.Type Self

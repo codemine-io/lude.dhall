@@ -1,11 +1,12 @@
 let Number = ./Type.dhall
 
-let Algebras = ../../Algebras/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
 let Extensions = ../../Extensions/package.dhall
 
 let Char = ./Char.dhall
 
-let Order = Algebras.Order
+let Order = Typeclasses.Classes.Ordering
 
-in  Extensions.NonEmpty.order Char.Type Char.order : Order.Type Number
+in    Typeclasses.Instances.NonEmpty.ordering Char.Type Char.order
+    : Order.Type Number

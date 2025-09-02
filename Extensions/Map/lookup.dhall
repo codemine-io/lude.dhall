@@ -1,11 +1,11 @@
 let Prelude = ../../Prelude.dhall
 
-let Algebras = ../../Algebras/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
 let Map = Prelude.Map
 
 in  \(Key : Type) ->
-    \(keyOrder : Algebras.Order.Type Key) ->
+    \(keyOrder : Typeclasses.Classes.Ordering.Type Key) ->
     \(Value : Type) ->
       let Entry = Map.Entry Key Value
 
@@ -16,7 +16,11 @@ in  \(Key : Type) ->
               merge
                 { Some = \(value : Value) -> Some value
                 , None =
-                    if    Algebras.Order.equal Key keyOrder key entry.mapKey
+                    if    Typeclasses.Classes.Ordering.equal
+                            Key
+                            keyOrder
+                            key
+                            entry.mapKey
                     then  Some entry.mapValue
                     else  None Value
                 }

@@ -1,12 +1,12 @@
 let Prelude = ../../Prelude.dhall
 
-let Algebras = ../../Algebras/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
 in  \(Element : Type) ->
-    \(elementOrder : Algebras.Order.Type Element) ->
+    \(elementOrder : Typeclasses.Classes.Ordering.Type Element) ->
     \(list : List Element) ->
     \(element : Element) ->
-        Algebras.Order.insertIntoDedupedSortedList
+        Typeclasses.Classes.Ordering.insertIntoDedupedSortedList
           Element
           elementOrder
           element

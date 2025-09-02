@@ -1,1 +1,5 @@
-{ equality = ./equality.dhall, div = ./div.dhall, order = ./order.dhall }
+let div
+    : Natural -> Natural -> Optional Natural
+    = ./div.dhall
+
+in  { div }

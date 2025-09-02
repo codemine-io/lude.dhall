@@ -1,7 +1,8 @@
 let Self = ./Type.dhall
 
-let Algebras = ../../Algebras/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
 let order = ./order.dhall
 
-in  Algebras.Order.toEquality Self order : Algebras.Equality.Type Self
+in    Typeclasses.Classes.Ordering.toEquality Self order
+    : Typeclasses.Classes.Equality.Type Self

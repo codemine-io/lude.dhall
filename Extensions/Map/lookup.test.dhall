@@ -1,12 +1,12 @@
 let Prelude = ../../Prelude.dhall
 
-let NaturalExtensions = ../Natural/package.dhall
+let Typeclasses = ../../Typeclasses.dhall
 
 let lookup = ./lookup.dhall
 
 let Map = Prelude.Map
 
-let subj = lookup Natural NaturalExtensions.order Text
+let subj = lookup Natural Typeclasses.Instances.Natural.ordering Text
 
 in  { lookup =
       { emptyMap = assert : subj ([] : Map.Type Natural Text) 5 === None Text
