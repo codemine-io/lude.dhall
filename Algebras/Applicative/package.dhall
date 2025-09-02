@@ -1,20 +1,18 @@
-let Self
-    : forall (F : Type -> Type) -> Type
-    = ./Type.dhall
+let Self = ./Type.dhall
 
 let sequenceList
     : forall (F : Type -> Type) ->
-      forall (A : Type) ->
       Self F ->
+      forall (A : Type) ->
       List (F A) ->
         F (List A)
     = ./sequenceList.dhall
 
 let traverseList
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
-      Self F ->
       (A -> F B) ->
       List A ->
         F (List B)
@@ -22,17 +20,17 @@ let traverseList
 
 let map0
     : forall (F : Type -> Type) ->
-      forall (A : Type) ->
       Self F ->
+      forall (A : Type) ->
       A ->
         F A
     = ./map0.dhall
 
 let map1
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
-      Self F ->
       (A -> B) ->
       F A ->
         F B
@@ -40,10 +38,10 @@ let map1
 
 let map2
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
-      Self F ->
       (A -> B -> C) ->
       F A ->
       F B ->
@@ -52,11 +50,11 @@ let map2
 
 let map3
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
       forall (D : Type) ->
-      Self F ->
       (A -> B -> C -> D) ->
       F A ->
       F B ->
@@ -66,12 +64,12 @@ let map3
 
 let map4
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
       forall (D : Type) ->
       forall (E : Type) ->
-      Self F ->
       (A -> B -> C -> D -> E) ->
       F A ->
       F B ->
@@ -82,13 +80,13 @@ let map4
 
 let map5
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
       forall (D : Type) ->
       forall (E : Type) ->
       forall (G : Type) ->
-      Self F ->
       (A -> B -> C -> D -> E -> G) ->
       F A ->
       F B ->
@@ -100,6 +98,7 @@ let map5
 
 let map6
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -107,7 +106,6 @@ let map6
       forall (E : Type) ->
       forall (G : Type) ->
       forall (H : Type) ->
-      Self F ->
       (A -> B -> C -> D -> E -> G -> H) ->
       F A ->
       F B ->
@@ -120,6 +118,7 @@ let map6
 
 let map7
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -128,7 +127,6 @@ let map7
       forall (G : Type) ->
       forall (H : Type) ->
       forall (I : Type) ->
-      Self F ->
       (A -> B -> C -> D -> E -> G -> H -> I) ->
       F A ->
       F B ->
@@ -142,6 +140,7 @@ let map7
 
 let map8
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -151,7 +150,6 @@ let map8
       forall (H : Type) ->
       forall (I : Type) ->
       forall (J : Type) ->
-      Self F ->
       (A -> B -> C -> D -> E -> G -> H -> I -> J) ->
       F A ->
       F B ->
@@ -166,6 +164,7 @@ let map8
 
 let map9
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -176,7 +175,6 @@ let map9
       forall (I : Type) ->
       forall (J : Type) ->
       forall (K : Type) ->
-      Self F ->
       (A -> B -> C -> D -> E -> G -> H -> I -> J -> K) ->
       F A ->
       F B ->
@@ -192,6 +190,7 @@ let map9
 
 let map10
     : forall (F : Type -> Type) ->
+      Self F ->
       forall (A : Type) ->
       forall (B : Type) ->
       forall (C : Type) ->
@@ -203,7 +202,6 @@ let map10
       forall (J : Type) ->
       forall (K : Type) ->
       forall (L : Type) ->
-      Self F ->
       (A -> B -> C -> D -> E -> G -> H -> I -> J -> K -> L) ->
       F A ->
       F B ->
