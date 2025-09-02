@@ -1,3 +1,3 @@
 { Algebras = ./Algebras/package.test.dhall
-, Natural = ./Extensions/package.test.dhall
+, Extensions = ./Extensions/package.test.dhall
 }
