@@ -1,6 +1,6 @@
 let Self = ./Type.dhall
 
-let Typeclasses = ../../Typeclasses.dhall
+let Typeclasses = ../../Deps/Typeclasses.dhall
 
 let order = ./order.dhall
 

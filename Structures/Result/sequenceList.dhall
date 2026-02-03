@@ -1,6 +1,6 @@
 let Self = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 in  \(Failure : Type) ->
     \(A : Type) ->

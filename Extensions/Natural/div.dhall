@@ -1,8 +1,7 @@
 -- Safe division of Natural numbers.
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
-let quotient =
-      ../../quotient.dhall
+let quotient = ../../Deps/quotient.dhall
 
 in  \(a : Natural) ->
     \(b : Natural) ->

@@ -1,5 +1,5 @@
 -- Combine two Optional values with a binary function
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 in  \(A : Type) ->
     \(B : Type) ->

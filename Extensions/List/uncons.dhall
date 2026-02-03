@@ -1,4 +1,4 @@
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 in  \(Element : Type) ->
       let Result = Prelude.NonEmpty.Type Element

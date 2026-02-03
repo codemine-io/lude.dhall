@@ -2,7 +2,7 @@
 -- The first character is converted to uppercase, and the rest to lowercase.
 let Self = ./Type.dhall
 
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
 let Char = ./Char.dhall
 

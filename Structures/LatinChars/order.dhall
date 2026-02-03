@@ -1,6 +1,6 @@
 let Number = ./Type.dhall
 
-let Typeclasses = ../../Typeclasses.dhall
+let Typeclasses = ../../Deps/Typeclasses.dhall
 
 let Extensions = ../../Extensions/package.dhall
 

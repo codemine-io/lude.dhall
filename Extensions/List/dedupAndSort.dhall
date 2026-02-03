@@ -1,6 +1,6 @@
-let Prelude = ../../Prelude.dhall
+let Prelude = ../../Deps/Prelude.dhall
 
-let Typeclasses = ../../Typeclasses.dhall
+let Typeclasses = ../../Deps/Typeclasses.dhall
 
 in  \(Element : Type) ->
     \(elementOrder : Typeclasses.Classes.Ordering.Type Element) ->
