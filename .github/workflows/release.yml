@@ -19,7 +19,7 @@ jobs:
         id: resolve
         uses: nikita-volkov/dhall-resolve.github-action@v1
         with:
-          file: src/package.dhall
+          file: package.dhall
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
