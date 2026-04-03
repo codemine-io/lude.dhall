@@ -10,8 +10,4 @@ let indentNonEmpty
     : Natural -> Text -> Text
     = ./indentNonEmpty.dhall
 
-let prefixEachNonEmptyLine
-    : Text -> Text -> Text
-    = ./prefixEachNonEmptyLine.dhall
-
-in  { indent, indentNonEmpty, prefixEachLine, prefixEachNonEmptyLine }
+in  { indent, indentNonEmpty, prefixEachLine }
