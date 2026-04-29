@@ -1,8 +1,10 @@
 -- Safe division of Natural numbers.
-let Prelude = ../../Deps/Prelude.dhall
+let divMod = ./divMod.dhall
 
-let quotient = ../../Deps/quotient.dhall
-
-in  \(a : Natural) ->
-    \(b : Natural) ->
-      if Prelude.Natural.isZero b then None Natural else Some (quotient a b).q
+in  λ(a : Natural) →
+    λ(b : Natural) →
+      merge
+        { None = None Natural
+        , Some = λ(result : { div : Natural, mod : Natural }) → Some result.div
+        }
+        (divMod a b)

@@ -2,4 +2,8 @@ let div
     : Natural -> Natural -> Optional Natural
     = ./div.dhall
 
-in  { div }
+let divMod
+    : Natural -> Natural -> Optional { div : Natural, mod : Natural }
+    = ./divMod.dhall
+
+in  { div, divMod }
