@@ -25,7 +25,7 @@ jobs:
         id: resolve
         uses: nikita-volkov/dhall-resolve.github-action@v1
         with:
-          file: package.dhall
+          file: ./src/package.dhall
           cse: true
 
       - name: Create GitHub Release

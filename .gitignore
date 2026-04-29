@@ -16,17 +16,6 @@
 # Unignore subtrees:
 !/.github/
 !/src/
-!/Deps
-!/Digit
-!/Function
-!/LatinChar
-!/LatinChars
-!/List
-!/Map
-!/Name
-!/Optional
-!/Result
-!/Text
 
 # Ignore noise:
 .DS_Store
