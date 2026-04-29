@@ -6,6 +6,12 @@ on:
       version-tag:
         description: Version tag for the release
         required: true
+  workflow_call:
+    inputs:
+      version-tag:
+        description: Version tag for the release
+        required: true
+        type: string
 
 jobs:
   release:
@@ -13,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Resolve Dhall
         id: resolve
