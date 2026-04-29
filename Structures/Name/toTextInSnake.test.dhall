@@ -2,18 +2,20 @@ let subj = ./toTextInSnake.dhall
 
 let Word = ../LatinChars/package.dhall
 
+let Char = ../LatinChar/Type.dhall
+
 let WordOrNumber = ./WordOrNumber/package.dhall
 
 in  { singleWord =
           assert
         :     subj
                 { head =
-                  { head = Word.Char.Type.H
+                  { head = Char.H
                   , tail =
-                    [ Word.Char.Type.E
-                    , Word.Char.Type.L
-                    , Word.Char.Type.L
-                    , Word.Char.Type.O
+                    [ Char.E
+                    , Char.L
+                    , Char.L
+                    , Char.O
                     ]
                   }
                 , tail = [] : List WordOrNumber.Type
@@ -23,33 +25,33 @@ in  { singleWord =
           assert
         :     subj
                 { head =
-                  { head = Word.Char.Type.H
+                  { head = Char.H
                   , tail =
-                    [ Word.Char.Type.E
-                    , Word.Char.Type.L
-                    , Word.Char.Type.L
-                    , Word.Char.Type.O
+                    [ Char.E
+                    , Char.L
+                    , Char.L
+                    , Char.O
                     ]
                   }
                 , tail =
                   [ WordOrNumber.Type.Word
-                      { head = Word.Char.Type.W
+                      { head = Char.W
                       , tail =
-                        [ Word.Char.Type.O
-                        , Word.Char.Type.R
-                        , Word.Char.Type.L
-                        , Word.Char.Type.D
+                        [ Char.O
+                        , Char.R
+                        , Char.L
+                        , Char.D
                         ]
                       }
                   , WordOrNumber.Type.Word
-                      { head = Word.Char.Type.E
+                      { head = Char.E
                       , tail =
-                        [ Word.Char.Type.X
-                        , Word.Char.Type.A
-                        , Word.Char.Type.M
-                        , Word.Char.Type.P
-                        , Word.Char.Type.L
-                        , Word.Char.Type.E
+                        [ Char.X
+                        , Char.A
+                        , Char.M
+                        , Char.P
+                        , Char.L
+                        , Char.E
                         ]
                       }
                   ]
@@ -59,13 +61,13 @@ in  { singleWord =
           assert
         :     subj
                 { head =
-                  { head = Word.Char.Type.A
-                  , tail = [ Word.Char.Type.P, Word.Char.Type.I ]
+                  { head = Char.A
+                  , tail = [ Char.P, Char.I ]
                   }
                 , tail =
                   [ WordOrNumber.Type.Word
-                      { head = Word.Char.Type.V
-                      , tail = [] : List Word.Char.Type
+                      { head = Char.V
+                      , tail = [] : List Char
                       }
                   , WordOrNumber.Type.Number 2
                   ]
@@ -75,16 +77,16 @@ in  { singleWord =
           assert
         :     subj
                 { head =
-                  { head = Word.Char.Type.U
+                  { head = Char.U
                   , tail =
-                    [ Word.Char.Type.S, Word.Char.Type.E, Word.Char.Type.R ]
+                    [ Char.S, Char.E, Char.R ]
                   }
                 , tail =
                   [ WordOrNumber.Type.Number 123
                   , WordOrNumber.Type.Word
-                      { head = Word.Char.Type.N
+                      { head = Char.N
                       , tail =
-                        [ Word.Char.Type.A, Word.Char.Type.M, Word.Char.Type.E ]
+                        [ Char.A, Char.M, Char.E ]
                       }
                   ]
                 }
@@ -93,15 +95,15 @@ in  { singleWord =
           assert
         :     subj
                 { head =
-                  { head = Word.Char.Type.A, tail = [] : List Word.Char.Type }
+                  { head = Char.A, tail = [] : List Char }
                 , tail =
                   [ WordOrNumber.Type.Word
-                      { head = Word.Char.Type.B
-                      , tail = [] : List Word.Char.Type
+                      { head = Char.B
+                      , tail = [] : List Char
                       }
                   , WordOrNumber.Type.Word
-                      { head = Word.Char.Type.C
-                      , tail = [] : List Word.Char.Type
+                      { head = Char.C
+                      , tail = [] : List Char
                       }
                   ]
                 }
@@ -110,9 +112,9 @@ in  { singleWord =
           assert
         :     subj
                 { head =
-                  { head = Word.Char.Type.T
+                  { head = Char.T
                   , tail =
-                    [ Word.Char.Type.E, Word.Char.Type.S, Word.Char.Type.T ]
+                    [ Char.E, Char.S, Char.T ]
                   }
                 , tail = [] : List WordOrNumber.Type
                 }
@@ -121,20 +123,20 @@ in  { singleWord =
           assert
         :     subj
                 { head =
-                  { head = Word.Char.Type.G
-                  , tail = [ Word.Char.Type.E, Word.Char.Type.T ]
+                  { head = Char.G
+                  , tail = [ Char.E, Char.T ]
                   }
                 , tail =
                   [ WordOrNumber.Type.Word
-                      { head = Word.Char.Type.U
+                      { head = Char.U
                       , tail =
-                        [ Word.Char.Type.S, Word.Char.Type.E, Word.Char.Type.R ]
+                        [ Char.S, Char.E, Char.R ]
                       }
                   , WordOrNumber.Type.Number 42
                   , WordOrNumber.Type.Word
-                      { head = Word.Char.Type.D
+                      { head = Char.D
                       , tail =
-                        [ Word.Char.Type.A, Word.Char.Type.T, Word.Char.Type.A ]
+                        [ Char.A, Char.T, Char.A ]
                       }
                   ]
                 }
