@@ -1,6 +1,0 @@
-{ List = ./List/package.dhall
-, Map = ./Map/package.dhall
-, Text = ./Text/package.dhall
-, Function = ./Function/package.dhall
-, Optional = ./Optional/package.dhall
-}
