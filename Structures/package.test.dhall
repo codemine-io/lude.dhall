@@ -1,2 +1,1 @@
-{ Name = ./Name/package.test.dhall
-}
+{ Name = ./Name/package.test.dhall }

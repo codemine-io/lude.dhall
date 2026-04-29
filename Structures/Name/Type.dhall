@@ -1,1 +1,7 @@
-{ head : (./Head.dhall).Type, tail : List (./TailElement.dhall).Type }
+let Head = ../LatinChars/Type.dhall
+
+let TailElement = ./WordOrNumber/Type.dhall
+
+let Tail = List TailElement
+
+in  { head : Head, tail : Tail }

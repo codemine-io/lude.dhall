@@ -1,5 +1,7 @@
 let Prelude = ../../Deps/Prelude.dhall
 
-let Char = ./Char.dhall
+let NonEmpty = Prelude.NonEmpty.Type
 
-in  Prelude.NonEmpty.Type Char.Type
+let Char = ../LatinChar/Type.dhall
+
+in  NonEmpty Char

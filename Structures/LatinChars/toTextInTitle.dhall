@@ -4,7 +4,7 @@ let Self = ./Type.dhall
 
 let Prelude = ../../Deps/Prelude.dhall
 
-let Char = ./Char.dhall
+let Char = ../LatinChar/package.dhall
 
 in  \(self : Self) ->
           Char.toTextInUpper self.head
