@@ -9,4 +9,6 @@
 , LatinChars = ./LatinChars/package.dhall
 , Digit = ./Digit/package.dhall
 , Name = ./Name/package.dhall
+, File = ./File/package.dhall
+, Files = ./Files/package.dhall
 }
