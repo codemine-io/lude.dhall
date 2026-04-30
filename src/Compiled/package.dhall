@@ -7,6 +7,7 @@
 , err = ./err.dhall
 , map = ./map.dhall
 , map2 = ./map2.dhall
+, map3 = ./map3.dhall
 , ap = ./ap.dhall
 , flatMap = ./flatMap.dhall
 , default = ./default.dhall
