@@ -13,16 +13,16 @@ let OrderType = < Less | Equal | Greater >
 let rank =
       \(self : Self) ->
         merge
-          { Zero = 0
-          , One = 1
-          , Two = 2
-          , Three = 3
-          , Four = 4
-          , Five = 5
-          , Six = 6
-          , Seven = 7
-          , Eight = 8
-          , Nine = 9
+          { _0 = 0
+          , _1 = 1
+          , _2 = 2
+          , _3 = 3
+          , _4 = 4
+          , _5 = 5
+          , _6 = 6
+          , _7 = 7
+          , _8 = 8
+          , _9 = 9
           , A = 10
           , B = 11
           , C = 12

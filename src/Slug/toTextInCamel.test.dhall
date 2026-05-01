@@ -38,7 +38,7 @@ in  { singleWord =
                 ( slug
                     (word Char.A [ Char.P, Char.I ])
                     [ word Char.V ([] : List Char)
-                    , word Char.Two ([] : List Char)
+                    , word Char._2 ([] : List Char)
                     ]
                 )
           ===  "apiV2"
@@ -47,7 +47,7 @@ in  { singleWord =
         :     toTextInCamel
                 ( slug
                     (word Char.U [ Char.S, Char.E, Char.R ])
-                    [ word Char.One [ Char.Two, Char.Three ]
+                    [ word Char._1 [ Char._2, Char._3 ]
                     , word Char.N [ Char.A, Char.M, Char.E ]
                     ]
                 )
@@ -73,7 +73,7 @@ in  { singleWord =
                 ( slug
                     (word Char.G [ Char.E, Char.T ])
                     [ word Char.U [ Char.S, Char.E, Char.R ]
-                    , word Char.Four [ Char.Two ]
+                    , word Char._4 [ Char._2 ]
                     , word Char.D [ Char.A, Char.T, Char.A ]
                     ]
                 )
