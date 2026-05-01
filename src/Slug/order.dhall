@@ -8,8 +8,10 @@ let Prelude = ../Deps/Prelude.dhall
 
 let Char = ./Char.dhall
 
-let Word = Prelude.NonEmpty.Type Char.Type
+let charOrder = ./Char/order.dhall
 
-let wordOrder = Typeclasses.Instances.NonEmpty.ordering Char.Type Char.order
+let Word = Prelude.NonEmpty.Type Char
+
+let wordOrder = Typeclasses.Instances.NonEmpty.ordering Char charOrder
 
 in  Typeclasses.Instances.NonEmpty.ordering Word wordOrder : Ordering.Type Self

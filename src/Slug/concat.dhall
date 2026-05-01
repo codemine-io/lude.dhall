@@ -4,7 +4,7 @@ let Self = ./Type.dhall
 
 let Char = ./Char.dhall
 
-let Word = Prelude.NonEmpty.Type Char.Type
+let Word = Prelude.NonEmpty.Type Char
 
 let toWordList = ./toWordList.dhall
 

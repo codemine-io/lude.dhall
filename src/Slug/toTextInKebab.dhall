@@ -4,12 +4,14 @@ let Prelude = ../Deps/Prelude.dhall
 
 let Char = ./Char.dhall
 
-let Word = Prelude.NonEmpty.Type Char.Type
+let toTextInLower = ./Char/toTextInLower.dhall
+
+let Word = Prelude.NonEmpty.Type Char
 
 let wordToTextInLower =
       \(word : Word) ->
-            Char.toTextInLower word.head
-        ++  Prelude.Text.concatMap Char.Type Char.toTextInLower word.tail
+            toTextInLower word.head
+        ++  Prelude.Text.concatMap Char toTextInLower word.tail
 
 in  \(self : Self) ->
       let headText = wordToTextInLower self.head

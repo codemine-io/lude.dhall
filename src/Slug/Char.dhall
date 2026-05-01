@@ -1,1 +1,1 @@
-./Char/package.dhall
+./Char/Type.dhall

@@ -4,17 +4,17 @@ let Self = ./Type.dhall
 
 let Char = ./Char.dhall
 
-let Word = Prelude.NonEmpty.Type Char.Type
+let Word = Prelude.NonEmpty.Type Char
 
 let uncons = ../List/uncons.dhall
 
 let word = ./word.dhall
 
-in  \(headHead : Char.Type) ->
-    \(headTail : List Char.Type) ->
-    \(tail : List (List Char.Type)) ->
+in  \(headHead : Char) ->
+    \(headTail : List Char) ->
+    \(tail : List (List Char)) ->
         { head = word headHead headTail
         , tail =
-            Prelude.List.filterMap (List Char.Type) Word (uncons Char.Type) tail
+            Prelude.List.filterMap (List Char) Word (uncons Char) tail
         }
       : Self
