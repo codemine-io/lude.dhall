@@ -1,2 +1,2 @@
-https://raw.githubusercontent.com/nikita-volkov/typeclasses.dhall/v1.0.4/src/package.dhall
-  sha256:0304dc3df75975b96baaaea82b64dff90bb227128170a262933d062ff5320a22
+https://raw.githubusercontent.com/nikita-volkov/typeclasses.dhall/8acc188f66144b1f8642ba680c646c11cbf903c0/src/package.dhall
+  sha256:bad20059a42251847a745e6cbb75262cf652a76f5d291ea3fb917260dec8efb3
