@@ -12,13 +12,13 @@ let Word = Prelude.NonEmpty.Type Char
 
 let wordToTextInLower =
       \(word : Word) ->
-                  toTextInLower word.head
-            ++  Prelude.Text.concatMap Char toTextInLower word.tail
+            toTextInLower word.head
+        ++  Prelude.Text.concatMap Char toTextInLower word.tail
 
 let wordToTextInTitle =
       \(word : Word) ->
-                  toTextInUpper word.head
-            ++  Prelude.Text.concatMap Char toTextInLower word.tail
+            toTextInUpper word.head
+        ++  Prelude.Text.concatMap Char toTextInLower word.tail
 
 in  \(self : Self) ->
           wordToTextInLower self.head

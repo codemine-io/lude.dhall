@@ -6,7 +6,6 @@ let Prelude = ../../Deps/Prelude.dhall
 
 let Ordering = Typeclasses.Classes.Ordering
 
-
 let Order = < Less | Equal | Greater >
 
 let rank =
