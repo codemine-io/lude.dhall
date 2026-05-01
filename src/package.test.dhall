@@ -3,4 +3,5 @@
 , Optional = ./Optional/package.test.dhall
 , Text = ./Text/package.test.dhall
 , Name = ./Name/package.test.dhall
+, Slug = ./Slug/package.test.dhall
 }
