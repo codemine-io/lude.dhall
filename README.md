@@ -4,10 +4,5 @@
 
 Basic typeclasses, extra functions and structures.
 
-# Using
-
-```dhall
-let Lude =
-      https://raw.githubusercontent.com/codemine-io/lude.dhall/v0.1.0/package.dhall
-        sha256:0a5582d47d9e195b6d042f05ec638e2af8daf8c0e4b6ce9500b830fe4bf205a7
-```
+> [!IMPORTANT]
+> This library relies on a fork of Dhall that provides primitives for `Natural/equal` and `Natural/lessThan`. These have been [PRd](https://github.com/dhall-lang/dhall-haskell/pull/2739) into the main repo. Until they get merged you will need to use the custom Dhall binary provided in https://github.com/nikita-volkov/dhall-haskell.
