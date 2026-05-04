@@ -26,7 +26,7 @@ jobs:
         uses: nikita-volkov/dhall-resolve.github-action@v2
         with:
           file: ./src/package.dhall
-          cse: true
+          minify: true
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
