@@ -26,13 +26,13 @@ in  \(compiled : Compiled FileMap) ->
 
       let fileMap
           : FileMap
-          =   fromOptional "pgenie-warnings.yaml" warningsYaml
+          =   fromOptional "warnings.yaml" warningsYaml
             # merge
                 { Ok = \(ok : FileMap) -> ok
                 , Err =
                     \(err : Report.Type) ->
                       [ Prelude.Map.keyText
-                          "pgenie-error.yaml"
+                          "error.yaml"
                           (Report.toPlainText "Error" err)
                       ]
                 }
