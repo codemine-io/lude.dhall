@@ -10,14 +10,7 @@ in  { singleWord =
           assert
         :     toTextInCamel
                 { head =
-                  { head = Char.H
-                  , tail =
-                    [ Char.E
-                    , Char.L
-                    , Char.L
-                    , Char.O
-                    ]
-                  }
+                  { head = Char.H, tail = [ Char.E, Char.L, Char.L, Char.O ] }
                 , tail = [] : List WordOrNumber.Type
                 }
           ===  "hello"
@@ -25,34 +18,16 @@ in  { singleWord =
           assert
         :     toTextInCamel
                 { head =
-                  { head = Char.H
-                  , tail =
-                    [ Char.E
-                    , Char.L
-                    , Char.L
-                    , Char.O
-                    ]
-                  }
+                  { head = Char.H, tail = [ Char.E, Char.L, Char.L, Char.O ] }
                 , tail =
                   [ WordOrNumber.Type.Word
                       { head = Char.W
-                      , tail =
-                        [ Char.O
-                        , Char.R
-                        , Char.L
-                        , Char.D
-                        ]
+                      , tail = [ Char.O, Char.R, Char.L, Char.D ]
                       }
                   , WordOrNumber.Type.Word
                       { head = Char.E
                       , tail =
-                        [ Char.X
-                        , Char.A
-                        , Char.M
-                        , Char.P
-                        , Char.L
-                        , Char.E
-                        ]
+                        [ Char.X, Char.A, Char.M, Char.P, Char.L, Char.E ]
                       }
                   ]
                 }
@@ -60,15 +35,10 @@ in  { singleWord =
     , wordWithNumber =
           assert
         :     toTextInCamel
-                { head =
-                  { head = Char.A
-                  , tail = [ Char.P, Char.I ]
-                  }
+                { head = { head = Char.A, tail = [ Char.P, Char.I ] }
                 , tail =
                   [ WordOrNumber.Type.Word
-                      { head = Char.V
-                      , tail = [] : List Char
-                      }
+                      { head = Char.V, tail = [] : List Char }
                   , WordOrNumber.Type.Number 2
                   ]
                 }
@@ -76,68 +46,43 @@ in  { singleWord =
     , numberInTail =
           assert
         :     toTextInCamel
-                { head =
-                  { head = Char.U
-                  , tail =
-                    [ Char.S, Char.E, Char.R ]
-                  }
+                { head = { head = Char.U, tail = [ Char.S, Char.E, Char.R ] }
                 , tail =
                   [ WordOrNumber.Type.Number 123
                   , WordOrNumber.Type.Word
-                      { head = Char.N
-                      , tail =
-                        [ Char.A, Char.M, Char.E ]
-                      }
+                      { head = Char.N, tail = [ Char.A, Char.M, Char.E ] }
                   ]
                 }
           ===  "user123Name"
     , singleCharWord =
           assert
         :     toTextInCamel
-                { head =
-                  { head = Char.A, tail = [] : List Char }
+                { head = { head = Char.A, tail = [] : List Char }
                 , tail =
                   [ WordOrNumber.Type.Word
-                      { head = Char.B
-                      , tail = [] : List Char
-                      }
+                      { head = Char.B, tail = [] : List Char }
                   , WordOrNumber.Type.Word
-                      { head = Char.C
-                      , tail = [] : List Char
-                      }
+                      { head = Char.C, tail = [] : List Char }
                   ]
                 }
           ===  "aBC"
     , emptyTail =
           assert
         :     toTextInCamel
-                { head =
-                  { head = Char.T
-                  , tail =
-                    [ Char.E, Char.S, Char.T ]
-                  }
+                { head = { head = Char.T, tail = [ Char.E, Char.S, Char.T ] }
                 , tail = [] : List WordOrNumber.Type
                 }
           ===  "test"
     , mixedWordsAndNumbers =
           assert
         :     toTextInCamel
-                { head =
-                  { head = Char.G
-                  , tail = [ Char.E, Char.T ]
-                  }
+                { head = { head = Char.G, tail = [ Char.E, Char.T ] }
                 , tail =
                   [ WordOrNumber.Type.Word
-                      { head = Char.U
-                      , tail =
-                        [ Char.S, Char.E, Char.R ]
-                      }
+                      { head = Char.U, tail = [ Char.S, Char.E, Char.R ] }
                   , WordOrNumber.Type.Number 42
                   , WordOrNumber.Type.Word
-                      { head = Char.D
-                      , tail =
-                        [ Char.A, Char.T, Char.A ]
-                      }
+                      { head = Char.D, tail = [ Char.A, Char.T, Char.A ] }
                   ]
                 }
           ===  "getUser42Data"
