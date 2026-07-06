@@ -6,4 +6,4 @@ let Report = ./Report/Type.dhall
 
 let Result = ./Result/Type.dhall
 
-in  \(A : Type) -> { warnings : List Report, result : Result A }
+in  \(A : Type) -> Result { warnings : List Report, value : A }

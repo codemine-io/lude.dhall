@@ -1,10 +1,6 @@
-let Prelude = ../Deps/Prelude.dhall
-
 let Compiled = ./Type.dhall
 
 let Report = ./Report/Type.dhall
-
-let Result = ./Result/Type.dhall
 
 in  \(A : Type) ->
     \(B : Type) ->
@@ -12,13 +8,20 @@ in  \(A : Type) ->
     \(a : Compiled A) ->
       merge
         { Ok =
-            \(aResult : A) ->
-              let b = f aResult
+            \(aPayload : { warnings : List Report, value : A }) ->
+              let b = f aPayload.value
 
-              in  { warnings = a.warnings # b.warnings, result = b.result }
-        , Err =
-            \(err : Report) ->
-              { warnings = a.warnings, result = (Result B).Err err }
+              in  merge
+                    { Ok =
+                        \(bPayload : { warnings : List Report, value : B }) ->
+                          (Compiled B).Ok
+                            { warnings = aPayload.warnings # bPayload.warnings
+                            , value = bPayload.value
+                            }
+                    , Err = (Compiled B).Err
+                    }
+                    b
+        , Err = (Compiled B).Err
         }
-        a.result
+        a
       : Compiled B

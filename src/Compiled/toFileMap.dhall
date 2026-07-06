@@ -28,7 +28,11 @@ in  \(compiled : Compiled FileMap) ->
           : FileMap
           =   fromOptional "warnings.yaml" warningsYaml
             # merge
-                { Ok = \(ok : FileMap) -> ok
+                { Ok =
+                    \ ( payload
+                      : { warnings : List Report.Type, value : FileMap }
+                      ) ->
+                      payload.value
                 , Err =
                     \(err : Report.Type) ->
                       [ Prelude.Map.keyText
@@ -36,6 +40,6 @@ in  \(compiled : Compiled FileMap) ->
                           (Report.toPlainText "Error" err)
                       ]
                 }
-                compiled.result
+                compiled
 
       in  fileMap

@@ -7,7 +7,7 @@ let Report = ./Report/package.dhall
 in  \(compiled : Compiled Text) ->
       merge
         { Ok =
-            \(ok : Text) ->
+            \(payload : { warnings : List Report.Type, value : Text }) ->
                   ''
                   OK!
                   ''
@@ -15,22 +15,14 @@ in  \(compiled : Compiled Text) ->
                     "\n"
                     Report.Type
                     (Report.toPlainText "Warning")
-                    compiled.warnings
+                    payload.warnings
               ++  "\n"
-              ++  ok
+              ++  payload.value
         , Err =
             \(err : Report.Type) ->
                   ''
                   ERROR!
                   ''
-              ++  Prelude.Text.concatSep
-                    "\n"
-                    (   Prelude.List.map
-                          Report.Type
-                          Text
-                          (Report.toPlainText "Warning")
-                          compiled.warnings
-                      # [ Report.toPlainText "Error" err ]
-                    )
+              ++  Report.toPlainText "Error" err
         }
-        compiled.result
+        compiled

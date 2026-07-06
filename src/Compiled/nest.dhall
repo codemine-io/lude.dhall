@@ -4,24 +4,23 @@ let Compiled = ./Type.dhall
 
 let Report = ./Report/package.dhall
 
-let Result = ./Result/Type.dhall
-
 in  \(A : Type) ->
     \(context : Text) ->
     \(compiled : Compiled A) ->
-        { warnings =
-            Prelude.List.map
-              Report.Type
-              Report.Type
-              (Report.nest context)
-              compiled.warnings
-        , result =
-            merge
-              { Ok = (Result A).Ok
-              , Err =
-                  \(err : Report.Type) ->
-                    (Result A).Err (Report.nest context err)
-              }
-              compiled.result
+      merge
+        { Ok =
+            \(payload : { warnings : List Report.Type, value : A }) ->
+              (Compiled A).Ok
+                { warnings =
+                    Prelude.List.map
+                      Report.Type
+                      Report.Type
+                      (Report.nest context)
+                      payload.warnings
+                , value = payload.value
+                }
+        , Err =
+            \(err : Report.Type) -> (Compiled A).Err (Report.nest context err)
         }
+        compiled
       : Compiled A

@@ -1,11 +1,7 @@
 -- Analogue to Haskell's `liftA3`
-let Prelude = ../Deps/Prelude.dhall
-
 let Compiled = ./Type.dhall
 
 let Report = ./Report/Type.dhall
-
-let Result = ./Result/Type.dhall
 
 in  \(A : Type) ->
     \(B : Type) ->
@@ -15,24 +11,34 @@ in  \(A : Type) ->
     \(a : Compiled A) ->
     \(b : Compiled B) ->
     \(c : Compiled C) ->
-      { warnings = a.warnings # b.warnings # c.warnings
-      , result =
-          merge
-            { Ok =
-                \(aVal : A) ->
-                  merge
-                    { Ok =
-                        \(bVal : B) ->
-                          merge
-                            { Ok =
-                                \(cVal : C) -> (Result D).Ok (f aVal bVal cVal)
-                            , Err = (Result D).Err
-                            }
-                            c.result
-                    , Err = (Result D).Err
-                    }
-                    b.result
-            , Err = (Result D).Err
-            }
-            a.result
-      }
+      merge
+        { Ok =
+            \(aPayload : { warnings : List Report, value : A }) ->
+              merge
+                { Ok =
+                    \(bPayload : { warnings : List Report, value : B }) ->
+                      merge
+                        { Ok =
+                            \ ( cPayload
+                              : { warnings : List Report, value : C }
+                              ) ->
+                              (Compiled D).Ok
+                                { warnings =
+                                      aPayload.warnings
+                                    # bPayload.warnings
+                                    # cPayload.warnings
+                                , value =
+                                    f
+                                      aPayload.value
+                                      bPayload.value
+                                      cPayload.value
+                                }
+                        , Err = (Compiled D).Err
+                        }
+                        c
+                , Err = (Compiled D).Err
+                }
+                b
+        , Err = (Compiled D).Err
+        }
+        a
