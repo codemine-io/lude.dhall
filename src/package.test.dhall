@@ -4,4 +4,5 @@
 , Text = ./Text/package.test.dhall
 , Name = ./Name/package.test.dhall
 , Slug = ./Slug/package.test.dhall
+, Compiled = ./Compiled/package.test.dhall
 }
