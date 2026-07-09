@@ -1,6 +1,6 @@
-let replaceIfEquals
+let replaceIfEqual
     : Text -> Text -> Text -> Text
-    = ./replaceIfEquals.dhall
+    = ./replaceIfEqual.dhall
 
 in  \(candidates : List Text) ->
     \(replacement : Text) ->
@@ -9,5 +9,5 @@ in  \(candidates : List Text) ->
         Text
         candidates
         Text
-        (\(candidate : Text) -> replaceIfEquals candidate replacement)
+        (\(candidate : Text) -> replaceIfEqual candidate replacement)
         original

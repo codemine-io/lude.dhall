@@ -10,12 +10,12 @@ let indentNonEmpty
     : Natural -> Text -> Text
     = ./indentNonEmpty.dhall
 
-let replaceIfEquals
+let replaceIfEqual
     : Text -> Text -> Text -> Text
-    = ./replaceIfEquals.dhall
+    = ./replaceIfEqual.dhall
 
 let replaceIfOneOf
     : List Text -> Text -> Text -> Text
     = ./replaceIfOneOf.dhall
 
-in  { indent, indentNonEmpty, prefixEachLine, replaceIfEquals, replaceIfOneOf }
+in  { indent, indentNonEmpty, prefixEachLine, replaceIfEqual, replaceIfOneOf }

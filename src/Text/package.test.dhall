@@ -1,4 +1,4 @@
 { indentNonEmpty = ./indentNonEmpty.test.dhall
-, replaceIfEquals = ./replaceIfEquals.test.dhall
+, replaceIfEqual = ./replaceIfEqual.test.dhall
 , replaceIfOneOf = ./replaceIfOneOf.test.dhall
 }

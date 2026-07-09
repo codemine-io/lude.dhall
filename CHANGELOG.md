@@ -2,7 +2,7 @@
 
 ## Non-breaking
 
-- Add `replaceIfEquals` and `replaceIfOneOf` functions to the Text module
+- Add `replaceIfEqual` and `replaceIfOneOf` functions to the Text module
 
 # v5.1.0
 
