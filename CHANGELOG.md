@@ -1,3 +1,9 @@
+# Upcoming
+
+## Non-breaking
+
+- Add `replaceIfEquals` and `replaceIfOneOf` functions to the Text module
+
 # v5.1.0
 
 ## Non-breaking
