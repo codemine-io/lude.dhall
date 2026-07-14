@@ -1,33 +1,36 @@
 let ifEqualElse = ./ifEqualElse.dhall
 
-in  { equalSimple = assert : ifEqualElse "foo" "foo" "EQ" "NEQ" === "EQ"
-    , notEqualSimple = assert : ifEqualElse "foo" "bar" "EQ" "NEQ" === "NEQ"
-    , bothEmpty = assert : ifEqualElse "" "" "EQ" "NEQ" === "EQ"
-    , emptyVsNonEmpty = assert : ifEqualElse "" "abc" "EQ" "NEQ" === "NEQ"
-    , nonEmptyVsEmpty = assert : ifEqualElse "abc" "" "EQ" "NEQ" === "NEQ"
-    , aIsPrefixOfB = assert : ifEqualElse "ab" "abab" "EQ" "NEQ" === "NEQ"
-    , bIsPrefixOfA = assert : ifEqualElse "abab" "ab" "EQ" "NEQ" === "NEQ"
-    , bIsARepeated = assert : ifEqualElse "a" "aaa" "EQ" "NEQ" === "NEQ"
-    , overlappingTiling = assert : ifEqualElse "aa" "aaa" "EQ" "NEQ" === "NEQ"
-    , disjointSubstrings = assert : ifEqualElse "ab" "cd" "EQ" "NEQ" === "NEQ"
-    , oneCharEqual = assert : ifEqualElse "a" "a" "EQ" "NEQ" === "EQ"
-    , unicodeEqual = assert : ifEqualElse "héllo" "héllo" "EQ" "NEQ" === "EQ"
+in  { equalSimple = assert : ifEqualElse "EQ" "NEQ" "foo" "foo" === "EQ"
+    , notEqualSimple = assert : ifEqualElse "EQ" "NEQ" "foo" "bar" === "NEQ"
+    , bothEmpty = assert : ifEqualElse "EQ" "NEQ" "" "" === "EQ"
+    , emptyVsNonEmpty = assert : ifEqualElse "EQ" "NEQ" "" "abc" === "NEQ"
+    , nonEmptyVsEmpty = assert : ifEqualElse "EQ" "NEQ" "abc" "" === "NEQ"
+    , candidateIsPrefixOfSubject =
+        assert : ifEqualElse "EQ" "NEQ" "ab" "abab" === "NEQ"
+    , subjectIsPrefixOfCandidate =
+        assert : ifEqualElse "EQ" "NEQ" "abab" "ab" === "NEQ"
+    , subjectIsCandidateRepeated =
+        assert : ifEqualElse "EQ" "NEQ" "a" "aaa" === "NEQ"
+    , overlappingTiling = assert : ifEqualElse "EQ" "NEQ" "aa" "aaa" === "NEQ"
+    , disjointSubstrings = assert : ifEqualElse "EQ" "NEQ" "ab" "cd" === "NEQ"
+    , oneCharEqual = assert : ifEqualElse "EQ" "NEQ" "a" "a" === "EQ"
+    , unicodeEqual = assert : ifEqualElse "EQ" "NEQ" "héllo" "héllo" === "EQ"
     , unicodeNotEqual =
-        assert : ifEqualElse "héllo" "hello" "EQ" "NEQ" === "NEQ"
+        assert : ifEqualElse "EQ" "NEQ" "héllo" "hello" === "NEQ"
     , inputsContainTheInternalPlaceholderCharEqual =
-        assert : ifEqualElse "xyx" "xyx" "EQ" "NEQ" === "EQ"
+        assert : ifEqualElse "EQ" "NEQ" "xyx" "xyx" === "EQ"
     , inputsContainTheInternalPlaceholderCharNotEqual =
-        assert : ifEqualElse "xyx" "xzx" "EQ" "NEQ" === "NEQ"
+        assert : ifEqualElse "EQ" "NEQ" "xyx" "xzx" === "NEQ"
     , inputIsExactlyThePlaceholderCharEqual =
-        assert : ifEqualElse "x" "x" "EQ" "NEQ" === "EQ"
+        assert : ifEqualElse "EQ" "NEQ" "x" "x" === "EQ"
     , inputIsExactlyThePlaceholderCharNotEqual =
-        assert : ifEqualElse "x" "y" "EQ" "NEQ" === "NEQ"
+        assert : ifEqualElse "EQ" "NEQ" "x" "y" === "NEQ"
     , branchValuesContainThePlaceholderCharEqual =
-        assert : ifEqualElse "foo" "foo" "x-EQ-x" "x-NEQ-x" === "x-EQ-x"
+        assert : ifEqualElse "x-EQ-x" "x-NEQ-x" "foo" "foo" === "x-EQ-x"
     , branchValuesContainThePlaceholderCharNotEqual =
-        assert : ifEqualElse "foo" "bar" "x-EQ-x" "x-NEQ-x" === "x-NEQ-x"
-    , branchValuesAreEmptyEqual = assert : ifEqualElse "foo" "foo" "" "" === ""
+        assert : ifEqualElse "x-EQ-x" "x-NEQ-x" "foo" "bar" === "x-NEQ-x"
+    , branchValuesAreEmptyEqual = assert : ifEqualElse "" "" "foo" "foo" === ""
     , branchValuesAreEmptyNotEqual =
-        assert : ifEqualElse "foo" "bar" "" "" === ""
+        assert : ifEqualElse "" "" "foo" "bar" === ""
     , allArgumentsEmpty = assert : ifEqualElse "" "" "" "" === ""
     }

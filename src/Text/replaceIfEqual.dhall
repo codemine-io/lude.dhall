@@ -6,4 +6,4 @@ let ifEqualElse
 in  \(target : Text) ->
     \(replacement : Text) ->
     \(original : Text) ->
-      ifEqualElse target original replacement original
+      ifEqualElse replacement original target original
